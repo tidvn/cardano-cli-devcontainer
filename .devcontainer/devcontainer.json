@@ -4,9 +4,7 @@
   "features": {
     "docker-in-docker": "latest"
   },
-  "mounts": [
-    "source=${localWorkspaceFolder},target=/workspaces,type=bind"
-  ],
+  "mounts": [],
   "postCreateCommand": "echo 'Container started'",
   "runArgs": [
     "--env",
