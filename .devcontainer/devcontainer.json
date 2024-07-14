@@ -1,15 +1,19 @@
 {
-    "name": "Cardano Node Development",
-    "image": "ghcr.io/blinklabs-io/cardano-node:latest",
-    "runArgs": [
-      "--detach",
-      "--name", "cardano-node",
-      "-v", "node-data:/data/db",
-      "-v", "node-ipc:/ipc",
-      "-e", "NETWORK=preprod",
-      "-p", "3001:3001"
-    ],
-    "postCreateCommand": "docker logs -f cardano-node",
-    "remoteUser": "vscode"
+  "name": "Cardano",
+  "image": "ghcr.io/blinklabs-io/cardano-node:main",
+  "runArgs": [
+    "--detach",
+    "--name", "cardano-node",
+    "-v", "node-data:/data/db",
+    "-v", "node-ipc:/ipc",
+    "-e", "NETWORK=preprod",
+    "-p", "3001:3001"
+  ],
+  "customizations": {
+      "vscode": {
+          "extensions": [
+              "ms-python.python"
+          ]
+      }
   }
-  
+}
