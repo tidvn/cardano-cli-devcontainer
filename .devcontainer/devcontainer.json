@@ -16,5 +16,8 @@
     "--cap-add=SYS_NICE",
     "--network=host"
   ],
+  "remoteEnv": {
+    "CARDANO_NODE_SOCKET_PATH": "/opt/cardano/config/preprod/db/node.socket"
+  },
   "shutdownAction": "none"
 }
