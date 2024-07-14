@@ -2,12 +2,10 @@
   "name": "Cardano Node",
   "image": "ghcr.io/blinklabs-io/cardano-node:main",
   "runArgs": [
-    "--detach",
     "--name", "cardano-node",
     "--env", "NETWORK=preprod",
-    "--publish", "3001:3001",
-    "tail", "-f", "/dev/null"
+    "--publish", "3001:3001"
   ],
-  "mounts": [],
+  "postCreateCommand": "tail -f /dev/null",  // Giữ container chạy
   "shutdownAction": "none"
 }
