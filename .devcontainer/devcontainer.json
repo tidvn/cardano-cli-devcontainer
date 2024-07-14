@@ -1,14 +1,15 @@
 {
     "name": "Cardano Node Development",
-    "image": "inputoutput/cardano-node:latest",
+    "image": "ghcr.io/blinklabs-io/cardano-node:latest",
     "runArgs": [
-        "-it",
-        "--name", "my-cardano-node",
-        "-p", "3001:3001",
-        "-v", "${localWorkspaceFolder}/config:/config",
-        "-v", "${localWorkspaceFolder}/state:/state" 
+      "--detach",
+      "--name", "cardano-node",
+      "-v", "node-data:/data/db",
+      "-v", "node-ipc:/ipc",
+      "-e", "NETWORK=preprod",
+      "-p", "3001:3001"
     ],
-    "postCreateCommand": "cardano-node run --topology /config/mainnet-topology.json --database-path /state --port 3001 --config /config/mainnet-config.yaml",
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-    "workspaceFolder": "${localWorkspaceFolder}"
-}
+    "postCreateCommand": "docker logs -f cardano-node",
+    "remoteUser": "vscode"
+  }
+  
