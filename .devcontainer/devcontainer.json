@@ -10,5 +10,5 @@
     ],
     "postCreateCommand": "cardano-node run --topology /config/mainnet-topology.json --database-path /state --port 3001 --config /config/mainnet-config.yaml",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-    "workspaceFolder": "/workspace"
+    "workspaceFolder": "."
 }
