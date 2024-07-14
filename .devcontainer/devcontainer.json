@@ -10,7 +10,6 @@
   ],
   "workspaceFolder": "/workspaces",
   "postCreateCommand": "echo 'Container started'",
-  "remoteUser": "vscode",
   "runArgs": [
     "--cap-add=SYS_NICE",
     "--network=host"
