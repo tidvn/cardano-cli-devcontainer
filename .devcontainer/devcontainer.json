@@ -4,14 +4,21 @@
   "features": {
     "docker-in-docker": "latest"
   },
-  
   "mounts": [
-    "source=${localWorkspaceFolder},target=/workspaces,type=bind"
+    "source=.node/data,target=/data/db",
+    "source=.node/ipc,target=/ipc",
+    "type=bind"
   ],
   "postCreateCommand": "echo 'Container started'",
   "runArgs": [
-    "--env", "NETWORK=preprod",
-    "--publish", "3001:3001",
+    "--env",
+    "NETWORK=preprod",
+    "--publish",
+    "3001:3001",
+    "--volume",
+    ".node/data:/data/db",
+    "--volume",
+    ".node/ipc:/ipc",
     "--cap-add=SYS_NICE",
     "--network=host"
   ],
