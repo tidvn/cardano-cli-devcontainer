@@ -5,11 +5,9 @@
     "docker-in-docker": "latest"
   },
   "mounts": [
-    "source=.node/data,target=/data/db",
-    "source=.node/ipc,target=/ipc",
-    "type=bind"
+    "source=.node/data,target=/data/db,source=.node/ipc,target=/ipc,type=bind"
   ],
-  "postCreateCommand": "echo 'Container started'",
+  "postCreateCommand": "alias cardano-cli='docker run --rm -ti  -e NETWORK=preprod  -v node-ipc:/ipc  ghcr.io/blinklabs-io/cardano-node cli'",
   "runArgs": [
     "--env",
     "NETWORK=preprod",
