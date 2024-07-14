@@ -4,15 +4,10 @@
   "runArgs": [
     "--detach",
     "--name", "cardano-node",
-    "--volume", "node-data:/data/db",
-    "--volume", "node-ipc:/ipc",
     "--env", "NETWORK=preprod",
     "--publish", "3001:3001",
-    "tail", "-f", "/dev/null"  // Giữ container chạy
+    "tail", "-f", "/dev/null"
   ],
-  "mounts": [
-    "source=node-data,target=/data/db",
-    "source=node-ipc,target=/ipc"
-  ],
+  "mounts": [],
   "shutdownAction": "none"
 }
