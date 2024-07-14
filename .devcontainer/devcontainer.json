@@ -1,23 +1,18 @@
 {
-  "name": "Cardano",
+  "name": "Cardano Node",
   "image": "ghcr.io/blinklabs-io/cardano-node:main",
   "runArgs": [
-    "--network host",
-    "--cap-add sys_nice",
-    "--hostname cardano-node",
-    "--add-host cardano-node:127.0.0.1"
+    "--detach",
+    "--name", "cardano-node",
+    "--volume", "node-data:/data/db",
+    "--volume", "node-ipc:/ipc",
+    "--env", "NETWORK=preprod",
+    "--publish", "3001:3001",
+    "tail", "-f", "/dev/null"  // Giữ container chạy
   ],
   "mounts": [
-    "source=node-data,target=/data/db,type=volume",
-    "source=node-ipc,target=/ipc,type=volume"
+    "source=node-data,target=/data/db",
+    "source=node-ipc,target=/ipc"
   ],
-  "overrideCommand": false,
-  "postCreateCommand": "echo Container started",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-python.python"
-      ]
-    }
-  }
+  "shutdownAction": "none"
 }
