@@ -8,7 +8,6 @@
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspaces,type=bind"
   ],
-  "workspaceFolder": "/workspaces",
   "postCreateCommand": "echo 'Container started'",
   "runArgs": [
     "--cap-add=SYS_NICE",
