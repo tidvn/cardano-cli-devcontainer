@@ -1,11 +1,22 @@
 {
-  "name": "Cardano Node",
+  "name": "Cardano CLI Devcontainer",
   "image": "ghcr.io/blinklabs-io/cardano-node:main",
-  "runArgs": [
-    "--name", "cardano-node",
-    "--env", "NETWORK=preprod",
-    "--publish", "3001:3001"
+  "features": {
+    "docker-in-docker": "latest",
+    "node": "18"
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspaces,type=bind"
   ],
-  "postCreateCommand": "tail -f /dev/null",  // Giữ container chạy
+  "workspaceFolder": "/workspaces",
+  "postCreateCommand": "echo 'Container started'",
+  "remoteUser": "vscode",
+  "runArgs": [
+    "--cap-add=SYS_NICE",
+    "--network=host"
+  ],
+  "containerEnv": {
+    "NETWORK": "preprod"
+  },
   "shutdownAction": "none"
 }
