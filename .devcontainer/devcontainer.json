@@ -1,8 +1,6 @@
 {
     "name": "Cardano Node Development",
-    "build": {
-        "dockerfile": "Dockerfile"
-    },
+    "image": "inputoutput/cardano-node:latest",
     "runArgs": [
         "-it",
         "--name", "my-cardano-node",
