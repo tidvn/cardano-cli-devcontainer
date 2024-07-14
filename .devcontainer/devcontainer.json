@@ -6,18 +6,16 @@
   },
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspaces,type=bind"
+    
   ],
   "workspaceFolder": "/workspaces",
   "postCreateCommand": "echo 'Container started'",
   "runArgs": [
-    "--env",
-    "NETWORK=preprod",
-    "--publish",
-    "3001:3001",
-    "--volume",
-    ".node/data:/data/db",
-    "--volume",
-    ".node/ipc:/ipc",
+    "--env","NETWORK=preprod",
+    "--publish","3001:3001",  // "--volume",
+    // ".node/data:/data/db",
+    // "--volume",
+    // ".node/ipc:/ipc",
     "--cap-add=SYS_NICE",
     "--network=host"
   ],
