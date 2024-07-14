@@ -4,9 +4,9 @@
   "features": {
     "docker-in-docker": "latest"
   },
-  // "mounts": [
-  //   "source=${localWorkspaceFolder},target=/workspaces,type=bind"
-  // ],
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspaces,type=bind"
+  ],
   "postCreateCommand": "echo 'Container started'",
   "runArgs": [
     "--cap-add=SYS_NICE",
