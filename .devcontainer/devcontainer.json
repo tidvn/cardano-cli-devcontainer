@@ -4,16 +4,16 @@
   "features": {
     "docker-in-docker": "latest"
   },
+  
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspaces,type=bind"
   ],
   "postCreateCommand": "echo 'Container started'",
   "runArgs": [
+    "--env", "NETWORK=preprod",
+    "--publish", "3001:3001",
     "--cap-add=SYS_NICE",
     "--network=host"
   ],
-  "containerEnv": {
-    "NETWORK": "preprod"
-  },
   "shutdownAction": "none"
 }
